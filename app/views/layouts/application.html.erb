@@ -8,7 +8,27 @@
 </head>
 <body>
 
-<%= yield %>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="#" class="brand"> Quikr </a>
+                <ul class="nav">
+                    <li><%= link_to "All Ad Posts", ad_posts_path %></li> 
+
+                    <li><%= link_to "All Categories", categories_path %></li> 
+
+                    <li><%= link_to "All Cities", cities_path %></li>
+
+                    <li><%= link_to "All Users", users_path %></li>
+            </div>
+        </div>
+    </div>  
+
+    <div class="container">
+        <%= yield %>
+    </div>
+
+
 
 </body>
 </html>

@@ -1,0 +1,66 @@
+<%= form_for(@ad_post) do |f| %>
+  <% if @ad_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ad_post.errors.count, "error") %> prohibited this ad_post from being saved:</h2>
+
+      <ul>
+      <% @ad_post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+
+    Category<br />
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => "--Select Category--" })  %>
+  </div>
+
+  <div class="field">
+
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+
+
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+
+    City<br />
+    <%= f.collection_select(:city_id, City.all, :id, :name, {:prompt => "--Select City--"})  %>
+  </div>
+  <div class="field">
+
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </div>
+  <% f.fields_for :users do |user| %>
+    <div class="field">
+
+   <div class="field">
+  
+   Name<br />
+    <%= f.label :name %><br />
+    <%= user.text_field :name %>
+  </div>
+  <div class="field">
+  
+    Email<br />
+    <%= f.label :email %><br />
+    <%= user.text_field :email %>
+  </div>
+  
+  <div class="field">
+    Phone<br />
+    <%= f.label :phone %><br />
+    <%= user.text_field :phone %>
+  </div>
+  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

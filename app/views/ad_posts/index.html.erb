@@ -1,0 +1,19 @@
+<h1>All Ad_Posts</h1>
+
+<table>
+
+<% @ad_posts.each do |ad_post| %>
+  <tr>
+    <td><%= ad_post.title %></td>
+    <td><%= ad_post.description %></td>
+    <td><%= ad_post.price %></td>
+    <td><%= link_to 'Show', ad_post %></td>
+    <td><%= link_to 'Edit', edit_ad_post_path(ad_post) %></td>
+    <td><%= link_to 'Destroy', ad_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ad post', new_ad_post_path %>

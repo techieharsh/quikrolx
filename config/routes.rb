@@ -1,4 +1,13 @@
 Quikr::Application.routes.draw do
+  resources :users
+
+
+  resources :ad_posts
+
+
+  resources :cities
+
+
   resources :categories
 
 
